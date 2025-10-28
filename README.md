@@ -36,10 +36,14 @@
 
 - <h3>As a user, I want to see my plant details👀.</h3>
 
-- <h3>As a user, I want to add a location to my plant place📍.</h3>
+- <h3>As a user, I want to add and remove a location for my plant place📍.</h3>
 
-- <h3>As a user, I want to add a reminder to my plant, such as water it or cut it ⏱️.</h3>
+- <h3>As a user, I want to add, edit, and delete a reminder for my plant, such as water it or cut it ⏱️.</h3>
 
 - <h3>As a user, I want to edit my plant details✏️.</h3>
 
 - <h3>As a user, I want to delete my plant🗑️.</h3>
+
+
+<br />
+<a style="font-size: 20px" href="https://github.com/majedyalmalki/backend">Backend</a>
