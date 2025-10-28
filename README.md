@@ -14,10 +14,15 @@
         <tr><td>Sign up</td><td>"/signup"</td><td>Create account page</td></tr>
         <tr><td>About</td><td>"/about"</td><td>About page</td></tr>
         <tr><td>Plants</td><td>"/plants"</td><td>Page to view all plants</td></tr>
+        <tr><td>Add new plant</td><td>"/plants/new"</td><td>Page to view all plants</td></tr>
         <tr><td>Plant details</td><td>/plants/:plantId</td><td>Page to specific plant details</td></tr>
         <tr><td>Edit plant</td><td>/plants/edit/:plantId</td><td>Page to edit plant</td></tr>
         <tr><td>Delete plant</td><td>/plants/confirm_delete/:plantId</td><td>Page to confirm deleting plant</td></tr>
-    </tbody>
+        <tr><td>Edit reminder</td><td>/reminder/edit/:reminderId</td><td>Page to edit reminders *optional*</td></tr>
+        <tr><td>location</td><td>/location</td><td>Page for location details</td></tr>
+        <tr><td>Add location</td><td>/location/new</td><td>Page to create new location</td></tr>
+
+</tbody>
 </table>
 
 <br /><br />
