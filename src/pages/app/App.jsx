@@ -26,7 +26,6 @@ function App() {
           <Route path="/about" element={<AboutPage />} />
           <Route path="/plants" element={<PlantIndexPage />} />
           <Route path="/plants/new" element={<PlantFormPage />} />
-
         </Routes>
       </main>
     </>
