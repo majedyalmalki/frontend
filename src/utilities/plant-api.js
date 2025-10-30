@@ -24,3 +24,15 @@ export async function deletePlant(plantId) {
 export async function createPhoto(plantId, formData) {
     return sendRequest(`${baseURL}${plantId}/add-photo/`, "POST", formData)
 }
+
+export async function getReminders(plantId) {
+    return sendRequest(`${baseURL}${plantId}/reminders/`);
+}
+
+export async function createReminder(plantId, formData) {
+    return sendRequest(`${baseURL}${plantId}/reminders/`, "POST", formData);
+}
+
+export async function deleteReminder(plantId, reminderId) {
+    return sendRequest(`${baseURL}${plantId}/reminders/${reminderId}/`, "DELETE");
+}
