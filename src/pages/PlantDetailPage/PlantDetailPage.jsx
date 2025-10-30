@@ -1,4 +1,4 @@
-// import "./styles.css";
+import "./styles.css";
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router";
 import * as plantAPI from "../../utilities/plant-api";
