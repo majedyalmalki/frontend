@@ -20,3 +20,7 @@ export async function update(formData, plantId) {
 export async function deletePlant(plantId) {
     return sendRequest(`${baseURL}${plantId}/`, "DELETE")
 }
+
+export async function createPhoto(plantId, formData) {
+    return sendRequest(`${baseURL}${plantId}/add-photo/`, "POST", formData)
+}
