@@ -34,8 +34,9 @@
 }
 
 .navbar-links {
-    display: flex;
     gap: 2rem;
+    display: flex;
+    margin-left: auto; 
 }
 
 .nav-item {
@@ -65,4 +66,10 @@
     height: 2px;
     background-color: #01DC82;
     border-radius: 4px;
+}
+
+button.nav-item{
+    border: 0;
+    background: none;
+    cursor: pointer;
 }
