@@ -9,7 +9,7 @@ export default function PhotoForm({ plant, addPhoto }) {
         setFormData(updatedFormData)
     }
 
-    function handleSumbit(evt) {
+    function handleSubmit(evt) {
         evt.preventDefault();
         addPhoto(formData)
         setFormData(initialState);
@@ -17,7 +17,7 @@ export default function PhotoForm({ plant, addPhoto }) {
 
     return (<>
         <h3>Change {plant.name}'s photo</h3>
-        <form onSubmit={handleSumbit} autoComplete="off">
+        <form onSubmit={handleSubmit} autoComplete="off">
             <p>
                 <label htmlFor="id_url">Url:</label>
                 <input value={formData.url} type="text" name="url" required id="id_url" onChange={handleChange} />

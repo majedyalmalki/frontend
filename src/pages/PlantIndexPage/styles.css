@@ -1,0 +1,45 @@
+.all-plants-page {
+    background-color: #f8fff9;
+    min-height: calc(100vh - 140px);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+    margin-left: 0px;
+    margin-right: 0px;
+    border-radius: 20px;
+    font-family: "Cairo", sans-serif;
+    font-weight: 700;
+}
+
+.plants-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.plants-header h1 {
+    font-size: 2rem;
+    color: #018f58;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.plants-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    justify-items: center;
+    align-items: start;
+    gap: 1rem;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.plant-card {
+    width: 100%;
+    max-width: 280px;
+    box-sizing: border-box;
+}

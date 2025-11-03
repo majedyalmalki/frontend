@@ -1,0 +1,113 @@
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    padding: 2rem;
+    background-color: #f7fcf8;
+}
+
+.plant-form, .delete-card {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    padding: 2.5rem 3rem;
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: center;
+}
+
+.plant-form h1, .delete-card h1 {
+    font-size: 1.8rem;
+    color: #137547;
+    margin-bottom: 0.5rem;
+}
+
+.form-group {
+    text-align: left;
+}
+
+label {
+    display: block;
+    font-weight: 600;
+    color: #0f5132;
+    margin-bottom: 0.5rem;
+}
+
+input,
+textarea {
+    width: 100%;
+    border: 1.5px solid #cfe9da;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+}
+
+input:focus,
+textarea:focus {
+    border-color: #137547;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(19, 117, 71, 0.15);
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.7rem 1.6rem;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.25s ease;
+}
+
+.btn.primary {
+    background-color: #137547;
+    color: white;
+}
+
+.btn.primary:hover {
+    background-color: #0d5e39;
+}
+
+.delete-mode {
+    background-color: #fff8f8;
+}
+
+.delete-card p {
+    color: #333;
+    margin-top: 0.5rem;
+}
+
+.delete-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.btn.cancel {
+    background-color: #d1e7dd;
+    color: #0f5132;
+}
+
+.btn.cancel:hover {
+    background-color: #bcd0c7;
+}
+
+.btn.delete {
+    background-color: #dc3545;
+    color: white;
+}
+
+.btn.delete:hover {
+    background-color: #b02a37;
+}
+
+.plant-form, .delete-card {
+    animation: fadeInUp 0.4s ease both;
+}

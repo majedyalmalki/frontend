@@ -22,17 +22,15 @@ export default function PlantDetailPage() {
         if (plantId) fetchData();
     }, [plantId]);
 
-
     async function addPhoto(formData) {
         try {
             const updatedPlant = await plantAPI.createPhoto(plantId, formData);
             setPlantDetail(updatedPlant);
         } catch (err) {
             console.log(err);
-            setPlantDetail({ ...plantDetail })
+            setPlantDetail({ ...plantDetail });
         }
     }
-
 
     const handleReminderAdded = async () => {
         const updatedPlantDetail = await plantAPI.detail(plantId);
@@ -44,58 +42,58 @@ export default function PlantDetailPage() {
     const handleDeleteReminder = async (reminderId) => {
         try {
             await plantAPI.deleteReminder(plantId, reminderId);
-            setReminders((reminders) => reminders.filter(reminder => reminder.id !== reminderId));
+            setReminders((reminders) =>
+                reminders.filter((reminder) => reminder.id !== reminderId)
+            );
         } catch (err) {
             console.error("Error deleting reminder:", err);
         }
     };
 
-
     if (!plantDetail) return <h3>Your plant details will display soon</h3>;
+
     return (
-        <>
+        <div className="plant-detail-container">
             <div>
-                <div>
-                    {plantDetail.photo?.url ? (
-                        <img
-                            src={plantDetail.photo.url}
-                            alt={`A photo of ${plantDetail.name}`}
-                            className="usr-img"
-                        />
-                    ) : (
-                        <img
-                            src={plantImg}
-                            alt="Default Plant image"
-                            className="usr-img"
-                        />
-                    )}
-                </div>
+                {plantDetail.photo?.url ? (
+                    <img
+                        src={plantDetail.photo.url}
+                        alt={`A photo of ${plantDetail.name}`}
+                        className="usr-img"
+                    />
+                ) : (
+                    <img
+                        src={plantImg}
+                        alt="Default Plant image"
+                        className="usr-img"
+                    />
+                )}
             </div>
+
             <div>
                 <h1>{plantDetail.name}</h1>
                 <p>{plantDetail.description}</p>
             </div>
 
-            <div>
-                <Link to={`/plants/edit/${plantDetail.id}`}>
-                    Edit
-                </Link>
-                <Link to={`/plants/confirm_delete/${plantDetail.id}`}>
-                    Delete
-                </Link>
+            <div className="detail-actions">
+                <Link to={`/plants/edit/${plantDetail.id}`}>Edit</Link>
+                <Link to={`/plants/confirm_delete/${plantDetail.id}`}>Delete</Link>
             </div>
+
             <section>
                 <PhotoForm plant={plantDetail} addPhoto={addPhoto} />
             </section>
+
             <section>
                 <h2>Add Reminder</h2>
                 <ReminderForm
                     plantId={plantId}
                     onReminderAdded={handleReminderAdded}
                 />
+
                 <h2>Reminders</h2>
                 {reminders.length > 0 ? (
-                    <div>
+                    <div className="reminders-container">
                         {reminders.map((reminder) => (
                             <div key={reminder.id}>
                                 <p>{reminder.title}</p>
@@ -116,6 +114,6 @@ export default function PlantDetailPage() {
                     <p>No reminders found.</p>
                 )}
             </section>
-        </>
-    )
+        </div>
+    );
 }

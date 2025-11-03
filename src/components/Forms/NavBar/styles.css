@@ -1,29 +1,68 @@
-body {
-    margin: 0px;
+.navbar {
+    background-color: #ffffff;
+    border-bottom: 1px solid #e8e8e8;
+    box-shadow: 0 2px 6px rgba(0, 59, 62, 0.05);
+    position: sticky;
+    top: 0;
+    border-radius: 20px;
+    margin-left: 50px;
+    margin-right: 50px;
+
 }
 
-.Nav {
-    background-color: greenyellow;
+.navbar-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
     display: flex;
-    justify-content: space-around;
     align-items: center;
+    justify-content: space-between;
 }
 
-.Nav li {
-    display: inline-block;
-    padding: 15px;
-    margin-left: 20px;
-    margin-right: 20px;
-    font-family: "Cairo", sans-serif;
+.navbar-logo {
+    font-size: 1.8rem;
     font-weight: 700;
-}
-
-.aNav{
+    color: #018f58;
     text-decoration: none;
-    color: darkgreen;
+    letter-spacing: 0.5px;
+    transition: color 0.2s ease;
+    font-family: "Cairo", sans-serif;
 }
 
-ul {
-    margin: 0;
-    background-color: greenyellow;
+.navbar-logo:hover {
+    color: #01DC82;
+}
+
+.navbar-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-item {
+    font-family: "Cairo", sans-serif;
+    text-decoration: none;
+    font-weight: 700;
+    color: #003B3E;
+    font-size: 1rem;
+    position: relative;
+    transition: color 0.2s ease;
+}
+
+.nav-item:hover {
+    color: #01DC82;
+}
+
+.nav-item.active {
+    color: #018f58;
+}
+
+.nav-item.active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 100%;
+    height: 2px;
+    background-color: #01DC82;
+    border-radius: 4px;
 }

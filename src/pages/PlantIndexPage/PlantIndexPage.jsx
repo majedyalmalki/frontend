@@ -6,7 +6,7 @@ import * as plantAPI from "../../utilities/plant-api"
 export default function PlantIndexPage() {
     const [allPlants, setAllPlants] = useState([]);
 
-    const displayAllPlants = allPlants.map((plants, index) => (
+    const displayAllPlants = [...allPlants].reverse().map((plants, index) => (
         <PlantIndexCard key={index} plant={plants} />
     ))
 
@@ -21,14 +21,15 @@ export default function PlantIndexPage() {
 
     return (
         <>
-            <section>
-                <h1>Plant List</h1>
-            </section>
+            <main className="all-plants-page">
+                <section className="plants-header">
+                    <h1>Plant List</h1>
+                </section>
 
-
-            <section>
-                {displayAllPlants}
-            </section>
+                <section className="plants-grid">
+                    {displayAllPlants}
+                </section>
+            </main>
         </>
     )
 }

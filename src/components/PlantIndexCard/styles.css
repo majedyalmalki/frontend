@@ -1,0 +1,55 @@
+.plant-card {
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 2px 10px rgba(0, 59, 62, 0.08);
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.plant-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 16px rgba(0, 59, 62, 0.15);
+}
+
+.IndexCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+    padding: 1rem;
+}
+
+.usr-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    background-color: #f4faf6;
+}
+
+.IndexCard h2 {
+    font-size: 1.25rem;
+    color: #018f58;
+    margin: 0.5rem 0;
+    font-weight: 600;
+    transition: color 0.2s ease;
+    font-weight: 700;
+}
+
+.plant-card:hover h2 {
+    color: #01DC82;
+}
+
+.IndexCard p {
+    font-size: 0.95rem;
+    color: #003B3E;
+    line-height: 1.4;
+    margin: 0;
+}
+
+.plant-card a {
+    text-decoration: none;
+    color: inherit;
+}

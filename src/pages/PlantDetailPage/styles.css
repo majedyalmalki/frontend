@@ -1,7 +1,195 @@
-.usr-img{
-    display: flex;
-    height: 150px;
-    width: 150px;
+body {
+    background-color: #f5fcf8;
+    font-family: "Cairo", sans-serif;
+    color: #053d2b;
+    margin: 0;
+    padding: 0;
+}
+
+.plant-detail-container {
+    max-width: 900px;
+    margin: 3rem auto;
+    padding: 2rem;
+    background-color: #ffffff;
     border-radius: 20px;
-    border: 2px solid yellowgreen;
+    box-shadow: 0 5px 15px rgba(0, 60, 25, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    box-sizing: border-box;
+}
+
+.plant-detail-container .usr-img {
+    display: block;
+    width: 220px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 20px;
+    margin: 0 auto;
+}
+
+.plant-detail-container h1 {
+    text-align: center;
+    color: #018f58;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.plant-detail-container p {
+    text-align: center;
+    color: #3a3a3a;
+    line-height: 1.5;
+    font-size: 1rem;
+}
+
+.detail-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.detail-actions a {
+    text-decoration: none;
+    color: #fff;
+    background-color: #018f58;
+    padding: 0.6rem 1.5rem;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+.detail-actions a:hover {
+    background-color: #026b42;
+}
+
+.plant-detail-container section {
+    background-color: #f3faf6;
+    border-radius: 15px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 60, 25, 0.05);
+    text-align: left;
+}
+
+.plant-detail-container section h2 {
+    color: #026b42;
+    margin-bottom: 1rem;
+}
+
+.plant-detail-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    text-align: left;
+}
+
+.plant-detail-container label {
+    display: block;
+    text-align: left;
+    margin-bottom: 0.35rem;
+    font-weight: 600;
+    color: #004d3e;
+}
+
+.plant-detail-container input,
+.plant-detail-container textarea,
+.plant-detail-container select {
+    width: 100%;
+    padding: 0.6rem 0.8rem;
+    border: 1px solid #cde7d7;
+    border-radius: 10px;
+    background-color: #ffffff;
+    outline: none;
+    font-size: 1rem;
+    color: #004d3e;
+    transition: all 0.3s ease;
+    text-align: left;
+}
+
+.plant-detail-container input:focus,
+.plant-detail-container textarea:focus {
+    border-color: #01dc82;
+    box-shadow: 0 0 0 3px rgba(1, 220, 130, 0.2);
+}
+
+.form-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.form-row label {
+    flex: 0 0 120px;
+    text-align: right;
+}
+
+.form-row input,
+.form-row textarea,
+.form-row select {
+    flex: 1;
+}
+
+.plant-detail-container button,
+.plant-detail-container input[type="submit"],
+.plant-detail-container .form-btn {
+    background-color: #018f58;
+    color: white;
+    border: none;
+    padding: 0.7rem 1.5rem;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    align-self: center;
+    transition: all 0.3s ease;
+}
+
+.plant-detail-container button:hover,
+.plant-detail-container input[type="submit"]:hover,
+.plant-detail-container .form-btn:hover {
+    background-color: #026b42;
+}
+
+.reminders-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.reminders-container>div {
+    background-color: #ffffff;
+    border: 1px solid #cce8d9;
+    border-radius: 12px;
+    padding: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 80, 50, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.4rem;
+}
+
+.reminders-container p {
+    margin: 0.25rem 0;
+    color: #053d2b;
+    text-align: left;
+}
+
+.reminders-container>div>button {
+    background-color: #e14a3b;
+    color: white;
+    border: none;
+    padding: 0.5rem 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin: 0.5rem auto 0 auto;
+}
+
+.reminders-container>div>button:hover {
+    background-color: #b82c28;
 }
