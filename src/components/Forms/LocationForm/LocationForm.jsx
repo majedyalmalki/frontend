@@ -1,19 +1,24 @@
 import { useState, useEffect } from "react";
 import { useNavigate, Link, useParams } from "react-router";
 import * as locationAPI from "../../../utilities/location-api";
+import "./styles.css";
 
 export default function LocationForm({ createLocation, editLocation, deleteLocation }) {
     const initialState = { name: "" };
     const [formData, setFormData] = useState(initialState);
+    const [currLocation, setCurrLocation] = useState(null);
     const navigate = useNavigate();
     const { id } = useParams();
-    const [currLocation, setCurrLocation] = useState(null);
 
     useEffect(() => {
         async function getLocationDetail() {
-            const locationDetailData = await locationAPI.detail(id);
-            setCurrLocation(locationDetailData);
-            setFormData(locationDetailData);
+            try {
+                const locationDetailData = await locationAPI.detail(id);
+                setCurrLocation(locationDetailData);
+                setFormData(locationDetailData);
+            } catch (err) {
+                console.log(err);
+            }
         }
         if ((editLocation && id) || (deleteLocation && id)) getLocationDetail();
     }, [id]);
@@ -24,15 +29,15 @@ export default function LocationForm({ createLocation, editLocation, deleteLocat
     }
 
     async function handleSubmit(evt) {
+        evt.preventDefault();
         try {
-            evt.preventDefault();
             const newLocation = editLocation
                 ? await locationAPI.update(formData, currLocation.id)
                 : await locationAPI.create(formData);
             setFormData(initialState);
             navigate(`/locations/${newLocation.id}`);
         } catch (err) {
-            console.log("Error creating new location: ", err);
+            console.log("Error creating or editing location:", err);
         }
     }
 
@@ -42,49 +47,67 @@ export default function LocationForm({ createLocation, editLocation, deleteLocat
         if (res?.success) {
             navigate("/locations");
         } else {
-            console.log(res);
-            alert("There was an error deleting the location - please contact admin.");
+            alert("There was an error deleting this location.");
         }
     }
 
-    if (deleteLocation && !currLocation) return <h1>Loading...</h1>;
-    if (deleteLocation && currLocation) {
+    if (deleteLocation && !currLocation) return <h1 className="loading-message">Loading...</h1>;
+    if (deleteLocation && currLocation)
         return (
-            <div className="form-container delete-mode">
-                <h1>Delete Location?</h1>
-                <h2>Are you sure you want to delete {currLocation.name}?</h2>
-                <form onSubmit={handleDelete}>
-                    <Link to={`/locations/${currLocation.id}`} className="btn secondary">Cancel</Link>
-                    <button type="submit" className="btn danger">Yes - Delete!</button>
-                </form>
-            </div>
+            <main className="form-page">
+                <section className="form-card delete-mode">
+                    <h1>Delete Location?</h1>
+                    <p className="delete-warning">
+                        Are you sure you want to permanently delete{" "}
+                        <strong>{currLocation.name}</strong>?
+                    </p>
+                    <form onSubmit={handleDelete} className="form-actions">
+                        <Link to={`/locations/${currLocation.id}`} className="btn secondary">
+                            Cancel
+                        </Link>
+                        <button type="submit" className="btn danger">
+                            Yes, Delete
+                        </button>
+                    </form>
+                </section>
+            </main>
         );
-    }
 
-    if (editLocation && !currLocation) return <h1>Loading...</h1>;
+    if ((editLocation && !currLocation) || (createLocation && !formData))
+        return <h1 className="loading-message">Loading...</h1>;
 
-    if (editLocation || createLocation) {
+    if (editLocation || createLocation)
         return (
-            <div className="form-container">
-                <h1>{editLocation ? "Edit Location" : "Add New Location"}</h1>
-                <form onSubmit={handleSubmit}>
-                    <div className="form-group">
-                        <label htmlFor="id_name">Name:</label>
-                        <input
-                            value={formData.name}
-                            type="text"
-                            name="name"
-                            maxLength="50"
-                            required
-                            id="id_name"
-                            onChange={handleChange}
-                        />
-                    </div>
-                    <button type="submit" className="btn primary">Submit!</button>
-                </form>
-            </div>
+            <main className="form-page">
+                <section className="form-card">
+                    <h1>{editLocation ? "Edit Location" : "Add New Location"}</h1>
+                    <form onSubmit={handleSubmit}>
+                        <div className="form-group">
+                            <label htmlFor="id_name">Name</label>
+                            <input
+                                value={formData.name}
+                                type="text"
+                                name="name"
+                                id="id_name"
+                                required
+                                maxLength="50"
+                                placeholder="Enter location name"
+                                onChange={handleChange}
+                            />
+                        </div>
+
+                        <div className="form-actions">
+                            <button type="submit" className="btn primary">
+                                {editLocation ? "Save Changes" : "Add Location"}
+                            </button>
+                            <Link to="/locations" className="btn secondary">
+                                Cancel
+                            </Link>
+                        </div>
+                    </form>
+                </section>
+            </main>
         );
-    }
 
     return null;
 }

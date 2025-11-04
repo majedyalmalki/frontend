@@ -17,17 +17,10 @@ export async function register(formData) {
 }
 
 export async function login(formData) {
-    try {
         const loggedInUser = await sendRequest(`${baseURL}login/`, "POST", formData)
         localStorage.setItem("accessToken", loggedInUser.access)
         localStorage.setItem("refreshToken", loggedInUser.refresh)
         return loggedInUser.user
-    } catch (err) {
-        console.log(err)
-        localStorage.removeItem("accessToken")
-        localStorage.removeItem("refreshToken")
-        return null
-    }
 }
 
 

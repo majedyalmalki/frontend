@@ -18,13 +18,13 @@ export default function PlantDetailPage() {
         const fetchData = async () => {
             const plantDetailData = await plantAPI.detail(plantId);
             setPlantDetail(plantDetailData.plant);
+
             const reminderData = await plantAPI.getReminders(plantId);
             setReminders(reminderData);
+
             const { locationsPlantHas, locationsPlantDoesNotHave } = await plantAPI.detail(plantId);
             setLocationsPlantHas(locationsPlantHas);
             setLocationsPlantDoesNotHave(locationsPlantDoesNotHave);
-
-
         };
 
         if (plantId) fetchData();
@@ -43,6 +43,7 @@ export default function PlantDetailPage() {
     const handleReminderAdded = async () => {
         const updatedPlantDetail = await plantAPI.detail(plantId);
         setPlantDetail(updatedPlantDetail);
+
         const reminderData = await plantAPI.getReminders(plantId);
         setReminders(reminderData);
     };
@@ -57,7 +58,6 @@ export default function PlantDetailPage() {
             console.error("Error deleting reminder:", err);
         }
     };
-
 
 
     async function handleAddLocation(evt, locationId) {
@@ -89,7 +89,6 @@ export default function PlantDetailPage() {
     const availableLocations = locationsPlantDoesNotHave.map(location => (
         <DisplayPlantLocations key={location.id} location={location} submitFunction={handleAddLocation} formAction="Add" />
     ))
-
 
 
     if (!plantDetail) return <h3>Your plant details will display soon</h3>;

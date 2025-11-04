@@ -43,25 +43,26 @@ function App() {
 
         <Routes>
           {user ? <>
-            <Route path='/home' element={<HomePage />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/plants" element={<PlantIndexPage />} />
-            <Route path="/plants/:plantId" element={<PlantDetailPage />} />
-            <Route path="/plants/new" element={<PlantFormPage createPlant={true} />} />
-            <Route path="/plants/edit/:plantId" element={<PlantFormPage editPlant={true} />}></Route>
-            <Route path="plants/confirm_delete/:plantId" element={<PlantFormPage deletePlant={true} />}></Route>
+            <Route path='/home'                             element={<HomePage />} />
+            <Route path="/about"                            element={<AboutPage />} />
 
-            <Route path="/locations"                      element={<LocationIndexPage />} />
-            <Route path="/locations/new"                  element={<LocationForm createLocation={true} />} />
-            <Route path="/locations/edit/:id"             element={<LocationForm editLocation={true}   />}/>
-            <Route path="/locations/confirm_delete/:id"   element={<LocationForm deleteLocation={true} />}/>
-            <Route path="/locations/:id"                  element={<LocationDetailPage />} />
+            <Route path="/plants"                           element={<PlantIndexPage />} />
+            <Route path="/plants/:plantId"                  element={<PlantDetailPage />} />
+            <Route path="/plants/new"                       element={<PlantFormPage createPlant={true} />} />
+            <Route path="/plants/edit/:plantId"             element={<PlantFormPage editPlant={true} />}></Route>
+            <Route path="plants/confirm_delete/:plantId"    element={<PlantFormPage deletePlant={true} />}></Route>
+
+            <Route path="/locations"                        element={<LocationIndexPage />} />
+            <Route path="/locations/new"                    element={<LocationForm createLocation={true} />} />
+            <Route path="/locations/edit/:id"               element={<LocationForm editLocation={true}   />}/>
+            <Route path="/locations/confirm_delete/:id"     element={<LocationForm deleteLocation={true} />}/>
+            <Route path="/locations/:id"                    element={<LocationDetailPage />} />
           </> : <>
-            <Route path="/*" element={<Navigate to="/home" />} />
-            <Route path='/home' element={<HomePage />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/register" element={<RegisterPage user={user} setUser={setUser} />} />
-            <Route path="/login" element={<LoginPage user={user} setUser={setUser} />} />
+            <Route path="/*"                                element={<Navigate to="/home" />} />
+            <Route path='/home'                             element={<HomePage />} />
+            <Route path="/about"                            element={<AboutPage />} />
+            <Route path="/register"                         element={<RegisterPage user={user} setUser={setUser} />} />
+            <Route path="/login"                            element={<LoginPage user={user} setUser={setUser} />} />
           </>}
         </Routes>
         <Footer />

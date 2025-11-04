@@ -4,37 +4,35 @@ export default function AboutPage() {
     return (
         <main className="about-container">
             <section className="about-card">
-                <h1>About Plants</h1>
+                <h1>About Plant Project</h1>
                 <hr />
                 <p>
-                    Welcome to <strong>Plant website</strong> 🌱 — your space to explore, manage, and celebrate plants of all kinds.
+                    Welcome to the <strong>Plant Project</strong> 🌿 — a simple and engaging way 
+                    to nurture your green collection. Our platform helps you manage your plants effortlessly by 
+                    allowing you to <strong>add new plants</strong>, <strong>set care reminders</strong>, 
+                    and <strong>organize them by location</strong> for better tracking and growth monitoring.
                     <br /><br />
-                    Our mission is to make plant care simple, organized, and inspiring. 
-                    Whether you're a beginner learning your first succulent or a plant enthusiast managing a full collection,
-                    this app helps you stay connected to every leaf and petal.
+                    Whether you’re cultivating a few houseplants or managing an outdoor garden, this project 
+                    makes plant care organized, visual, and enjoyable — turning everyday gardening into a rewarding habit.
                 </p>
 
                 <div className="about-grid">
                     <div className="about-item">
-                        <h3>🌿 Easy Tracking</h3>
-                        <p>Keep all your plant details, notes, and photos in one beautiful dashboard.</p>
+                        <h3>Organize Your Green Space🌿</h3>
+                        <p>Easily categorize and locate your plants by room, garden section, or outdoor spot for better management.</p>
                     </div>
                     <div className="about-item">
-                        <h3>💧 Smart Care</h3>
-                        <p>Set watering or sunlight reminders and never forget to care for your green friends.</p>
+                        <h3>Never Miss a Care Day💧</h3>
+                        <p>Set personalized watering and care reminders so your plants stay healthy and thriving all year long.</p>
                     </div>
                     <div className="about-item">
-                        <h3>🌳 Supporting Green Riyadh</h3>
-                        <p>
-                            Inspired by the <strong>Green Riyadh Project</strong>, our platform promotes sustainability 
-                            and encourages users to contribute to a greener, cleaner city by planting and caring 
-                            for more trees and native plants.
-                        </p>
+                        <h3>Capture and Grow📸</h3>
+                        <p>Upload photos of each plant to document its progress, identify species, and celebrate your green journey.</p>
                     </div>
                 </div>
 
                 <footer className="about-footer">
-                    <p>Let it green🌱</p>
+                    <p>Together, let’s make plant care easier, smarter, and greener 🌱</p>
                 </footer>
             </section>
         </main>

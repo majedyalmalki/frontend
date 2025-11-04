@@ -1,10 +1,10 @@
-
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
 import { Link } from "react-router";
 import * as locationAPI from "../../utilities/location-api";
+import "./styles.css";
 
 export default function LocationIndexPage() {
-    const [allLocations, setAllLocations] = useState([])
+    const [allLocations, setAllLocations] = useState([]);
 
     useEffect(() => {
         async function getAllLocations() {
@@ -12,26 +12,41 @@ export default function LocationIndexPage() {
                 const allLocationsData = await locationAPI.index();
                 setAllLocations(allLocationsData);
             } catch (err) {
-                console.log(err)
+                console.log(err);
             }
         }
-        getAllLocations()
-    }, [])
+        getAllLocations();
+    }, []);
 
-    return (<>
-        <section className="page-header">
-            <h1>All Plant Locations</h1>
-        </section>
-        <section>
-            {allLocations.map(location => (
-                <div key={location.id}>
-                    <Link to={`/locations/${location.id}`}>
-                        <div>
+    return (
+        <main className="locations-page">
+            <section className="locations-header">
+                <h1>Your Plant Locations📍</h1>
+                <p>
+                    Organize your plants by where they grow best — from sunny balconies
+                    to cozy corners. Manage all your plant locations here and keep track
+                    of where each one thrives 🌿
+                </p>
+            </section>
+
+            <section className="locations-list">
+                {allLocations.length > 0 ? (
+                    allLocations.map((location) => (
+                        <Link
+                            to={`/locations/${location.id}`}
+                            key={location.id}
+                            className="location-card"
+                        >
                             <h2>{location.name}</h2>
-                        </div>
-                    </Link>
-                </div>
-            ))}
-        </section>
-    </>)
+                            {location.description && (
+                                <p>{location.description.slice(0, 120)}...</p>
+                            )}
+                        </Link>
+                    ))
+                ) : (
+                    <p className="no-data">No locations found 🌱</p>
+                )}
+            </section>
+        </main>
+    );
 }

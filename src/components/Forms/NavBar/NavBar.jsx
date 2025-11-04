@@ -20,14 +20,14 @@ export default function NavBar({ user, setUser }) {
 
                 <header className="navbar">
                     <div className="navbar-container">
-                        <Link to="/home" className="navbar-logo">Logo</Link>
+                        <Link to="/home" className="navbar-logo">Plant</Link>
 
                         <nav className="navbar-links">
                             <Link className="nav-item" to="/plants">All Plants</Link>
                             <Link className="nav-item" to="/plants/new">Add new plant</Link>
-                            <Link className="nav-item" to="/about">About</Link>
                             <Link className="nav-item" to="/locations">All Locations</Link>
-                            <Link className="nav-item" to="/locations/new">Create New Location</Link>
+                            <Link className="nav-item" to="/locations/new">Add new location</Link>
+                            <Link className="nav-item" to="/about">About</Link>
                             <form className="nav-item" onSubmit={handleLogout}>
                                 <button className="nav-item" type="submit">Log out</button>
                             </form>
@@ -47,7 +47,7 @@ export default function NavBar({ user, setUser }) {
 
                 <header className="navbar">
                     <div className="navbar-container">
-                        <Link to="/home" className="navbar-logo">Logo</Link>
+                        <Link to="/home" className="navbar-logo">Plant</Link>
                         <nav className="navbar-links">
                             <Link className="nav-item" to="/login">Login</Link>
                             <Link className="nav-item" to="/register">SignUp</Link>

@@ -43,3 +43,50 @@
     max-width: 280px;
     box-sizing: border-box;
 }
+
+.no-plants-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    min-height: 40vh;
+    gap: 1.5rem;
+}
+
+.no-plants-message {
+    color: #018f58;
+    font-size: 1.5rem;
+    font-weight: 700;
+    background-color: #ffffff;
+    border: 2px dashed #01dc82;
+    border-radius: 16px;
+    padding: 1.5rem 2rem;
+    box-shadow: 0 4px 10px rgba(0, 59, 62, 0.05);
+    transition: all 0.3s ease-in-out;
+    font-family: "Cairo", sans-serif;
+}
+
+.no-plants-message:hover {
+    background-color: #f3fff7;
+    transform: scale(1.02);
+}
+
+.add-plant-btn {
+    text-decoration: none;
+    background-color: #018f58;
+    color: white;
+    padding: 0.8rem 2rem;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 1rem;
+    font-family: "Cairo", sans-serif;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 3px 6px rgba(0, 80, 60, 0.1);
+}
+
+.add-plant-btn:hover {
+    background-color: #01dc82;
+    transform: translateY(-2px);
+}
