@@ -36,3 +36,19 @@ export async function createReminder(plantId, formData) {
 export async function deleteReminder(plantId, reminderId) {
     return sendRequest(`${baseURL}${plantId}/reminders/${reminderId}/`, "DELETE");
 }
+
+export async function createLocation(plantId, formData) {
+    return sendRequest(`${baseURL}${plantId}/locations/`, "POST", formData);
+}
+
+export async function getLocations(plantId) {
+    return sendRequest(`${baseURL}${plantId}/locations/`);
+}
+
+export async function updateLocation(plantId, locationId, formData) {
+    return sendRequest(`${baseURL}${plantId}/locations/${locationId}/`, "PUT", formData);
+}
+
+export async function deleteLocation(plantId, locationId) {
+    return sendRequest(`${baseURL}${plantId}/locations/${locationId}/`, "DELETE");
+}

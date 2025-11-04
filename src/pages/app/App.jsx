@@ -1,3 +1,4 @@
+import './App.css'
 import HomePage from '../HomePage/HomePage';
 import NavBar from '../../components/Forms/NavBar/NavBar';
 import AboutPage from '../AboutPage/AboutPage';
@@ -7,17 +8,13 @@ import PlantDetailPage from '../PlantDetailPage/PlantDetailPage';
 import Footer from '../../components/Forms/Footer/Footer';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
-import './App.css'
-import { Routes, Route, Navigate, useLocation } from 'react-router';
+import { Routes, Route, Navigate } from 'react-router';
 import { useEffect, useState } from 'react';
 import { getUser } from '../../utilities/users-api';
 
 function App() {
   const [user, setUser] = useState(null)
 
-  const location = useLocation();
-
-  const routes = ["about", "plants", "home"]
 
   useEffect(() => {
     async function checkUser() {

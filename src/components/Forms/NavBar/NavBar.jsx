@@ -47,8 +47,8 @@ export default function NavBar({ user, setUser }) {
                     <div className="navbar-container">
                         <Link to="/home" className="navbar-logo">Logo</Link>
                         <nav className="navbar-links">
-                            <Link className="nav-item" to="/register">SignUp</Link>
                             <Link className="nav-item" to="/login">Login</Link>
+                            <Link className="nav-item" to="/register">SignUp</Link>
                             <Link className="nav-item" to="/about">About</Link>
                         </nav>
                     </div>

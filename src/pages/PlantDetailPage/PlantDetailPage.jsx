@@ -5,8 +5,12 @@ import * as plantAPI from "../../utilities/plant-api";
 import plantImg from "../../assets/images/plantImg.svg";
 import PhotoForm from "../../components/Forms/PhotoForm/PhotoForm";
 import ReminderForm from "../../components/Forms/ReminderForm/ReminderForm";
+import LocationForm from "../../components/Forms/LocationForm/LocationForm";
 
 export default function PlantDetailPage() {
+    const [locations, setLocations] = useState([]);
+    const [currentLocationId, setCurrentLocationId] = useState(null);
+    const [updatedLocationName, setUpdatedLocationName] = useState("");
     const [plantDetail, setPlantDetail] = useState(null);
     const [reminders, setReminders] = useState([]);
     const { plantId } = useParams();
@@ -17,6 +21,8 @@ export default function PlantDetailPage() {
             setPlantDetail(plantDetailData);
             const reminderData = await plantAPI.getReminders(plantId);
             setReminders(reminderData);
+            const locationData = await plantAPI.getLocations(plantId);
+            setLocations(locationData);
         };
 
         if (plantId) fetchData();
@@ -49,6 +55,36 @@ export default function PlantDetailPage() {
             console.error("Error deleting reminder:", err);
         }
     };
+
+
+    const handleLocationAdded = async () => {
+        const locationData = await plantAPI.getLocations(plantId);
+        setLocations(locationData);
+    };
+
+    const handleDeleteLocation = async (locationId) => {
+        try {
+            await plantAPI.deleteLocation(plantId, locationId);
+            setLocations(prevLocations => prevLocations.filter(location => location.id !== locationId));
+        } catch (err) {
+            console.error("Error deleting location:", err);
+        }
+    };
+
+    const handleUpdateLocation = async (locationId, updatedData) => {
+        try {
+            const updatedLocation = await plantAPI.updateLocation(plantId, locationId, updatedData);
+            setLocations(prevLocations =>
+                prevLocations.map(location =>
+                    location.id === locationId ? updatedLocation : location
+                )
+            );
+        } catch (err) {
+            console.error("Error updating location:", err);
+        }
+    };
+
+
 
     if (!plantDetail) return <h3>Your plant details will display soon</h3>;
 
@@ -112,6 +148,48 @@ export default function PlantDetailPage() {
                     </div>
                 ) : (
                     <p>No reminders found.</p>
+                )}
+            </section>
+            <section>
+                <h2>Add Location</h2>
+                <LocationForm
+                    plantId={plantId}
+                    onLocationAdded={handleLocationAdded}
+                />
+
+                <h2>Locations</h2>
+                {locations.length > 0 ? (
+                    <div className="locations-container">
+                        {locations.map((location) => (
+                            <div key={location.id}>
+                                <p>{location.name}</p>
+                                <button onClick={() => {
+                                    setCurrentLocationId(location.id);
+                                    setUpdatedLocationName(location.name);
+                                }}>Edit</button>
+                                <button onClick={() => handleDeleteLocation(location.id)}>Delete</button>
+                            </div>
+                        ))}
+                        {currentLocationId && (
+                            <div>
+                                <input
+                                    type="text"
+                                    value={updatedLocationName}
+                                    onChange={(e) => setUpdatedLocationName(e.target.value)}
+                                    placeholder="Update Location Name"
+                                />
+                                <button onClick={async () => {
+                                    await handleUpdateLocation(currentLocationId, { name: updatedLocationName });
+                                    setCurrentLocationId(null);
+                                    setUpdatedLocationName("");
+                                }}>
+                                    Save
+                                </button>
+                            </div>
+                        )}
+                    </div>
+                ) : (
+                    <p>No locations found.</p>
                 )}
             </section>
         </div>
