@@ -41,14 +41,11 @@ export async function createLocation(plantId, formData) {
     return sendRequest(`${baseURL}${plantId}/locations/`, "POST", formData);
 }
 
-export async function getLocations(plantId) {
-    return sendRequest(`${baseURL}${plantId}/locations/`);
+
+export async function addLocationToPlant(plantId, locationId) {
+    return sendRequest(`${baseURL}${plantId}/associate-location/${locationId}/`, "POST")
 }
 
-export async function updateLocation(plantId, locationId, formData) {
-    return sendRequest(`${baseURL}${plantId}/locations/${locationId}/`, "PUT", formData);
-}
-
-export async function deleteLocation(plantId, locationId) {
-    return sendRequest(`${baseURL}${plantId}/locations/${locationId}/`, "DELETE");
+export async function removeLocationToPlant(plantId, locationId) {
+    return sendRequest(`${baseURL}${plantId}/remove-location/${locationId}/`, "POST")
 }

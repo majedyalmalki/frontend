@@ -13,8 +13,8 @@ export default function PlantFormPage({ createPlant, editPlant, deletePlant }) {
     useEffect(() => {
         async function getPlantDetail() {
             const plantDetailData = await plantAPI.detail(plantId);
-            setCurrPlant(plantDetailData);
-            setFormData(plantDetailData);
+            setCurrPlant(plantDetailData.plant);
+            setFormData(plantDetailData.plant);
         }
         if ((editPlant && plantId) || (deletePlant && plantId)) getPlantDetail();
     }, [plantId]);

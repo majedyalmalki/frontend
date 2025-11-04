@@ -11,6 +11,9 @@ import RegisterPage from '../RegisterPage/RegisterPage';
 import { Routes, Route, Navigate } from 'react-router';
 import { useEffect, useState } from 'react';
 import { getUser } from '../../utilities/users-api';
+import LocationForm from '../../components/Forms/LocationForm/LocationForm';
+import LocationDetailPage from '../LocationDetailPage/LocationDetailPage';
+import LocationIndexPage from '../LocationIndexPage/LocationIndexPage';
 
 function App() {
   const [user, setUser] = useState(null)
@@ -47,6 +50,12 @@ function App() {
             <Route path="/plants/new" element={<PlantFormPage createPlant={true} />} />
             <Route path="/plants/edit/:plantId" element={<PlantFormPage editPlant={true} />}></Route>
             <Route path="plants/confirm_delete/:plantId" element={<PlantFormPage deletePlant={true} />}></Route>
+
+            <Route path="/locations"                      element={<LocationIndexPage />} />
+            <Route path="/locations/new"                  element={<LocationForm createLocation={true} />} />
+            <Route path="/locations/edit/:id"             element={<LocationForm editLocation={true}   />}/>
+            <Route path="/locations/confirm_delete/:id"   element={<LocationForm deleteLocation={true} />}/>
+            <Route path="/locations/:id"                  element={<LocationDetailPage />} />
           </> : <>
             <Route path="/*" element={<Navigate to="/home" />} />
             <Route path='/home' element={<HomePage />} />

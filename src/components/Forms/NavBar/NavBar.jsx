@@ -26,6 +26,8 @@ export default function NavBar({ user, setUser }) {
                             <Link className="nav-item" to="/plants">All Plants</Link>
                             <Link className="nav-item" to="/plants/new">Add new plant</Link>
                             <Link className="nav-item" to="/about">About</Link>
+                            <Link className="nav-item" to="/locations">All Locations</Link>
+                            <Link className="nav-item" to="/locations/new">Create New Location</Link>
                             <form className="nav-item" onSubmit={handleLogout}>
                                 <button className="nav-item" type="submit">Log out</button>
                             </form>
