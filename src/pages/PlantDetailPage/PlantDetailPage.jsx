@@ -7,6 +7,11 @@ import PhotoForm from "../../components/Forms/PhotoForm/PhotoForm";
 import ReminderForm from "../../components/Forms/ReminderForm/ReminderForm";
 import DisplayPlantLocations from "../../components/Forms/DisplayPlantLocations/DisplayPlantLocations";
 
+
+
+// # ================================================================================================================= #
+// #                                             Plant Detail Page                                                     #
+// # ================================================================================================================= #
 export default function PlantDetailPage() {
     const [plantDetail, setPlantDetail] = useState(null);
     const [reminders, setReminders] = useState([]);
@@ -14,6 +19,11 @@ export default function PlantDetailPage() {
     const [locationsPlantHas, setLocationsPlantHas] = useState([]);
     const [locationsPlantDoesNotHave, setLocationsPlantDoesNotHave] = useState([]);
 
+
+
+// # ================================================================================================================= #
+// #                                                  useEffect                                                        #
+// # ================================================================================================================= #
     useEffect(() => {
         const fetchData = async () => {
             const plantDetailData = await plantAPI.detail(plantId);
@@ -30,6 +40,11 @@ export default function PlantDetailPage() {
         if (plantId) fetchData();
     }, [plantId]);
 
+
+
+// # ================================================================================================================= #
+// #                                                 Add Photo                                                         #
+// # ================================================================================================================= #
     async function addPhoto(formData) {
         try {
             const updatedPlant = await plantAPI.createPhoto(plantId, formData);
@@ -40,6 +55,11 @@ export default function PlantDetailPage() {
         }
     }
 
+
+
+// # ================================================================================================================= #
+// #                                                  Add Reminder                                                     #
+// # ================================================================================================================= #
     const handleReminderAdded = async () => {
         const updatedPlantDetail = await plantAPI.detail(plantId);
         setPlantDetail(updatedPlantDetail);
@@ -48,6 +68,12 @@ export default function PlantDetailPage() {
         setReminders(reminderData);
     };
 
+
+
+
+// # ================================================================================================================= #
+// #                                                  Delete Reminder                                                  #
+// # ================================================================================================================= #
     const handleDeleteReminder = async (reminderId) => {
         try {
             await plantAPI.deleteReminder(plantId, reminderId);
@@ -60,6 +86,10 @@ export default function PlantDetailPage() {
     };
 
 
+
+// # ================================================================================================================= #
+// #                                                  Add Location                                                     #
+// # ================================================================================================================= #
     async function handleAddLocation(evt, locationId) {
         try {
             evt.preventDefault()
@@ -71,6 +101,12 @@ export default function PlantDetailPage() {
         }
     }
 
+
+
+
+// # ================================================================================================================= #
+// #                                                  Remove Location                                                  #
+// # ================================================================================================================= #
     async function handleRemoveLocation(evt, locationId) {
         try {
             evt.preventDefault()

@@ -3,6 +3,12 @@ import { useNavigate } from "react-router";
 import "./styles.css";
 import * as usersAPI from "../../utilities/users-api";
 
+
+
+
+// # ================================================================================================================= #
+// #                                                Register Page                                                      #
+// # ================================================================================================================= #
 export default function RegisterPage({ setUser }) {
     const navigate = useNavigate();
     const initialState = { username: "", password: "", confirmPassword: "", email: "" };
@@ -10,16 +16,31 @@ export default function RegisterPage({ setUser }) {
     const [errors, setErrors] = useState({ username: '', password: '', email: '', confirmPassword: '' });
     const [serverError, setServerError] = useState("");
 
+
+// # ================================================================================================================= #
+// #                              Disable the submit button if the user let the inputs blank                           #
+// # ================================================================================================================= #
     const disabledSubmitBtn =
         Object.values(errors).some(val => val !== "") ||
         Object.values(formData).some(val => val === "");
 
+
+
+// # ================================================================================================================= #
+// #                                                   handleChange                                                    #
+// # ================================================================================================================= #
     function handleChange(evt) {
         setFormData({ ...formData, [evt.target.name]: evt.target.value });
         checkErrors(evt);
         setServerError("");
     }
 
+
+
+
+// # ================================================================================================================= #
+// #                                                     Validations                                                   #
+// # ================================================================================================================= #
     function checkErrors({ target }) {
         const updateErrors = { ...errors };
 
@@ -43,6 +64,12 @@ export default function RegisterPage({ setUser }) {
         setErrors(updateErrors);
     }
 
+
+
+
+// # ================================================================================================================= #
+// #                                                   handleSubmit                                                    #
+// # ================================================================================================================= #
     async function handleSubmit(evt) {
         evt.preventDefault();
         try {

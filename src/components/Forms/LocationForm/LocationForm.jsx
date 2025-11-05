@@ -3,6 +3,10 @@ import { useNavigate, Link, useParams } from "react-router";
 import * as locationAPI from "../../../utilities/location-api";
 import "./styles.css";
 
+
+// # ================================================================================================================= #
+// #                                                Main function                                                      #
+// # ================================================================================================================= #
 export default function LocationForm({ createLocation, editLocation, deleteLocation }) {
     const initialState = { name: "" };
     const [formData, setFormData] = useState(initialState);
@@ -10,6 +14,11 @@ export default function LocationForm({ createLocation, editLocation, deleteLocat
     const navigate = useNavigate();
     const { id } = useParams();
 
+
+
+// # ================================================================================================================= #
+// #                                                  UseEffect                                                        #
+// # ================================================================================================================= #
     useEffect(() => {
         async function getLocationDetail() {
             try {
@@ -23,11 +32,20 @@ export default function LocationForm({ createLocation, editLocation, deleteLocat
         if ((editLocation && id) || (deleteLocation && id)) getLocationDetail();
     }, [id]);
 
+
+
+// # ================================================================================================================= #
+// #                                                 handleChange                                                      #
+// # ================================================================================================================= #
     function handleChange(evt) {
         const newFormData = { ...formData, [evt.target.name]: evt.target.value };
         setFormData(newFormData);
     }
 
+
+// # ================================================================================================================= #
+// #                                                 handleSubmit                                                      #
+// # ================================================================================================================= #
     async function handleSubmit(evt) {
         evt.preventDefault();
         try {
@@ -41,6 +59,11 @@ export default function LocationForm({ createLocation, editLocation, deleteLocat
         }
     }
 
+
+
+// # ================================================================================================================= #
+// #                                              handleDelete Location                                                #
+// # ================================================================================================================= #
     async function handleDelete(evt) {
         evt.preventDefault();
         const res = await locationAPI.deleteLocation(currLocation.id);
@@ -51,6 +74,11 @@ export default function LocationForm({ createLocation, editLocation, deleteLocat
         }
     }
 
+
+
+// # ================================================================================================================= #
+// #                                             For Delete location                                                   #
+// # ================================================================================================================= #
     if (deleteLocation && !currLocation) return <h1 className="loading-message">Loading...</h1>;
     if (deleteLocation && currLocation)
         return (
@@ -72,6 +100,10 @@ export default function LocationForm({ createLocation, editLocation, deleteLocat
                 </section>
             </main>
         );
+
+// # ================================================================================================================= #
+// #                                                 For Edit location                                                 #
+// # ================================================================================================================= #
 
     if ((editLocation && !currLocation) || (createLocation && !formData))
         return <h1 className="loading-message">Loading...</h1>;

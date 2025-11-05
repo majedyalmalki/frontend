@@ -3,17 +3,32 @@ import { useState } from "react";
 import { useNavigate } from "react-router";
 import * as usersAPI from "../../utilities/users-api";
 
+
+
+
+// # ================================================================================================================= #
+// #                                                  Login Page                                                       #
+// # ================================================================================================================= #
 export default function LoginPage({ user, setUser }) {
     const initialState = { username: "", password: "" };
     const [formData, setFormData] = useState(initialState);
     const [errorMessage, setErrorMessage] = useState("");
     const navigate = useNavigate();
 
+
+// # ================================================================================================================= #
+// #                                                  handleChange                                                     #
+// # ================================================================================================================= #
     function handleChange(evt) {
         setFormData({ ...formData, [evt.target.name]: evt.target.value });
         setErrorMessage("");
     }
 
+
+
+// # ================================================================================================================= #
+// #                                                    handleLogin                                                    #
+// # ================================================================================================================= #
     async function handleLogin(evt) {
         try {
             evt.preventDefault();
@@ -29,6 +44,8 @@ export default function LoginPage({ user, setUser }) {
             setErrorMessage("Incorrect username or password. Please try again.");
         }
     }
+
+
 
     return (
         <>

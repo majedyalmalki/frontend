@@ -2,6 +2,11 @@ import "./styles.css";
 import { Link } from "react-router";
 import plantImg from "../../assets/images/plantImg.svg";
 
+
+
+// # ================================================================================================================= #
+// #                                               PlantIndexCard                                                      #
+// # ================================================================================================================= #
 export default function PlantIndexCard({ plant }) {
 
     return (

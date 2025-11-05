@@ -3,6 +3,12 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router";
 import * as plantAPI from "../../utilities/plant-api";
 
+
+
+
+// # ================================================================================================================= #
+// #                                                  Plant Form Page                                                  #
+// # ================================================================================================================= #
 export default function PlantFormPage({ createPlant, editPlant, deletePlant }) {
     const initialState = { name: "", description: "" };
     const [formData, setFormData] = useState(initialState);
@@ -10,6 +16,11 @@ export default function PlantFormPage({ createPlant, editPlant, deletePlant }) {
     const { plantId } = useParams();
     const [currPlant, setCurrPlant] = useState({});
 
+
+
+// # ================================================================================================================= #
+// #                                                     useEffect                                                     #
+// # ================================================================================================================= #
     useEffect(() => {
         async function getPlantDetail() {
             const plantDetailData = await plantAPI.detail(plantId);
@@ -19,20 +30,40 @@ export default function PlantFormPage({ createPlant, editPlant, deletePlant }) {
         if ((editPlant && plantId) || (deletePlant && plantId)) getPlantDetail();
     }, [plantId]);
 
+
+
+// # ================================================================================================================= #
+// #                                                  Reset Form Data                                                  #
+// # ================================================================================================================= #
     const resetFormData = () => {
         setFormData(initialState);
         setCurrPlant({});
     };
 
+
+
+// # ================================================================================================================= #
+// #                                                    useEffect                                                      #
+// # ================================================================================================================= #
     useEffect(() => {
         if (createPlant) resetFormData();
     }, [createPlant]);
 
+
+
+// # ================================================================================================================= #
+// #                                                    handleChange                                                   #
+// # ================================================================================================================= #
     function handleChange(evt) {
         const newFormData = { ...formData, [evt.target.name]: evt.target.value };
         setFormData(newFormData);
     }
 
+
+
+// # ================================================================================================================= #
+// #                                                     handleSubmit                                                  #
+// # ================================================================================================================= #
     async function handleSubmit(evt) {
         evt.preventDefault();
         try {
@@ -46,6 +77,12 @@ export default function PlantFormPage({ createPlant, editPlant, deletePlant }) {
         }
     }
 
+
+
+
+// # ================================================================================================================= #
+// #                                                 handleDelete                                                      #
+// # ================================================================================================================= #
     async function handleDelete(evt) {
         evt.preventDefault();
         const response = await plantAPI.deletePlant(currPlant.id);

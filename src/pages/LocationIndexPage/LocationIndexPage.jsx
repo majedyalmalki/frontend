@@ -3,9 +3,19 @@ import { Link } from "react-router";
 import * as locationAPI from "../../utilities/location-api";
 import "./styles.css";
 
+
+
+// # ================================================================================================================= #
+// #                                               Location Index Page                                                 #
+// # ================================================================================================================= #
 export default function LocationIndexPage() {
     const [allLocations, setAllLocations] = useState([]);
 
+
+
+// # ================================================================================================================= #
+// #                                                   useEffect                                                       #
+// # ================================================================================================================= #
     useEffect(() => {
         async function getAllLocations() {
             try {
@@ -17,6 +27,8 @@ export default function LocationIndexPage() {
         }
         getAllLocations();
     }, []);
+
+
 
     return (
         <main className="locations-page">

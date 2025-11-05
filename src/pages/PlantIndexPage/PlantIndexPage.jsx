@@ -4,6 +4,12 @@ import { useEffect, useState } from "react";
 import * as plantAPI from "../../utilities/plant-api";
 import { Link } from "react-router";
 
+
+
+
+// # ================================================================================================================= #
+// #                                                Plant Index Page                                                   #
+// # ================================================================================================================= #
 export default function PlantIndexPage() {
     const [allPlants, setAllPlants] = useState([]);
 
@@ -11,6 +17,10 @@ export default function PlantIndexPage() {
         <PlantIndexCard key={index} plant={plant} />
     ));
 
+
+// # ================================================================================================================= #
+// #                                                   useEffect                                                       #
+// # ================================================================================================================= #
     useEffect(() => {
         async function getAllPlants() {
             const allPlantData = await plantAPI.index();

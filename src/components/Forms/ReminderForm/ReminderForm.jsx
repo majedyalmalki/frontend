@@ -1,19 +1,32 @@
 import { useState } from 'react';
 import * as plantAPI from '../../../utilities/plant-api';
 
+
+
+// # ================================================================================================================= #
+// #                                                 ReminderForm                                                      #
+// # ================================================================================================================= #
 const ReminderForm = ({ plantId, onReminderAdded }) => {
     const [formData, setFormData] = useState({ title: '', date_time: '' });
 
+
+
+// # ================================================================================================================= #
+// #                                                  handleChange                                                     #
+// # ================================================================================================================= #
     const handleChange = (evt) => {
         const { name, value } = evt.target;
         setFormData({ ...formData, [name]: value });
     };
 
+
+
+// # ================================================================================================================= #
+// #                                                    handleSubmit                                                   #
+// # ================================================================================================================= #
     const handleSubmit = async (evt) => {
         evt.preventDefault();
-
         if (!formData.date_time) return;
-
         try {
             await plantAPI.createReminder(plantId, formData);
             onReminderAdded();
@@ -22,6 +35,8 @@ const ReminderForm = ({ plantId, onReminderAdded }) => {
             console.error("Error adding reminder:", error.message);
         }
     };
+
+
 
     return (
         <form onSubmit={handleSubmit}>

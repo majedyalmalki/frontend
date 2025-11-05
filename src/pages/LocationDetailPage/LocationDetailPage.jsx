@@ -3,10 +3,21 @@ import { useParams, Link } from "react-router";
 import * as locationAPI from "../../utilities/location-api";
 import "./styles.css";
 
+
+
+
+// # ================================================================================================================= #
+// #                                             Location Detail Page                                                  #
+// # ================================================================================================================= #
 export default function LocationDetailPage() {
     const [locationDetail, setLocationDetail] = useState(null);
     const { id } = useParams();
 
+
+
+// # ================================================================================================================= #
+// #                                                  useEffect                                                        #
+// # ================================================================================================================= #
     useEffect(() => {
         async function getLocationDetail() {
             try {
@@ -21,6 +32,8 @@ export default function LocationDetailPage() {
 
     if (!locationDetail)
         return <h1 className="loading-message">Loading location details...</h1>;
+
+
 
     return (
         <main className="location-detail-page">
