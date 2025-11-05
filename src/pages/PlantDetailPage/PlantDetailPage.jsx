@@ -155,7 +155,7 @@ export default function PlantDetailPage() {
                     <p>No reminders found.</p>
                 )}
             </section>
-            <section className="toys">
+            <section>
 					<div className="subsection-title">
 						<h2>Locations</h2>
 					</div>
