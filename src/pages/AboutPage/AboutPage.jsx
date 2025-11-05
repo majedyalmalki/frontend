@@ -13,13 +13,13 @@ export default function AboutPage() {
                 <h1>About Plant Project</h1>
                 <hr />
                 <p>
-                    Welcome to the <strong>Plant Project</strong> 🌿 — a simple and engaging way 
+                    Welcome to the <strong>Plant Project</strong> 🌿 a simple and engaging way 
                     to nurture your green collection. Our platform helps you manage your plants effortlessly by 
                     allowing you to <strong>add new plants</strong>, <strong>set care reminders</strong>, 
                     and <strong>organize them by location</strong> for better tracking and growth monitoring.
                     <br /><br />
                     Whether you’re cultivating a few houseplants or managing an outdoor garden, this project 
-                    makes plant care organized, visual, and enjoyable — turning everyday gardening into a rewarding habit.
+                    makes plant care organized, visual, and enjoyable turning everyday gardening into a rewarding habit.
                 </p>
 
                 <div className="about-grid">

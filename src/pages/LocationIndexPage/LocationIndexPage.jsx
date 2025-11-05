@@ -35,7 +35,7 @@ export default function LocationIndexPage() {
             <section className="locations-header">
                 <h1>Your Plant Locations📍</h1>
                 <p>
-                    Organize your plants by where they grow best — from sunny balconies
+                    Organize your plants by where they grow best from sunny balconies
                     to cozy corners. Manage all your plant locations here and keep track
                     of where each one thrives 🌿
                 </p>
