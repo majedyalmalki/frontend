@@ -19,7 +19,7 @@
         <tr><td>Edit plant</td><td>/plants/edit/:plantId</td><td>Page to edit plant</td></tr>
         <tr><td>Delete plant</td><td>/plants/confirm_delete/:plantId</td><td>Page to confirm deleting plant</td></tr>
         <tr><td>Edit reminder</td><td>/reminder/edit/:reminderId</td><td>Page to edit reminders *optional*</td></tr>
-        <tr><td>location</td><td>/locations</td><td>Page for location details</td></tr>
+        <tr><td>All locations</td><td>/locations</td><td>Page for location details</td></tr>
         <tr><td>Add location</td><td>/locations/new</td><td>Page to create new location</td></tr>
         <tr><td>Edit location</td><td>/locations/edit/:id"</td><td>Page to edit the location</td></tr>
         <tr><td>Delete location</td><td>/locations/confirm_delete/:id" </td><td>delete confirmation page for the location</td></tr>
@@ -41,11 +41,21 @@
 
 - <h4>As a user, I want to add, edit, and remove a location for my plant place📍.</h4>
 
-- <h4>As a user, I want to add, edit, and delete a reminder for my plant, such as water it or cut it ⏱️.</h4>
+- <h4>As a user, I want to add and delete a reminder for my plant, such as water it or cut it ⏱️.</h4>
 
 - <h4>As a user, I want to edit my plant details✏️.</h4>
 
 - <h4>As a user, I want to delete my plant🗑️.</h4>
+
+
+<br/><br />
+<h1>Tech stack ⚙️</h1>
+<ul>
+<li>React</li>
+<li>Javascript</li>
+<li>HTML</li>
+<li>CSS</li>
+</ul>
 
 
 <br /><br />
@@ -59,6 +69,20 @@
 <h4>Expert advice chatbot 🧑‍🌾</h4>
 <h4>Multi-language support (Arabic/English) 🌍</h4>
 
+<br /><br />
+<h1>Docker installation Instructions 💻</h1>
+
+```bash
+git clone https://github.com/majedyalmalki/frontend
+cd frontend
+
+docker-compose up -d
+```
+- <p>Next, run your server</p>
+
+```bash
+npm run dev
+```
 
 <br />
 ----> <a style="font-size: 20px" href="https://github.com/majedyalmalki/backend">Backend</a> <----
