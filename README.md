@@ -1,4 +1,5 @@
 <h1>Plant project🌿</h1>
+<p>Full-stack web application designed to help users organize and care for their plants. Each user can create an account, add their plants, assign locations, upload photos, and set reminders for watering or maintenance.</p>
 <h1>Front End</h1>
 
 <table border="1" width="100%">
